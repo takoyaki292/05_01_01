@@ -17,7 +17,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	memcpy(preKeys, keys, 256);
 	Novice::GetHitKeyStateAll(keys);
 	game.Run();
-	//game.~GameManager();
+	
 	// ライブラリの終了
 	Novice::Finalize();
 	return 0;
