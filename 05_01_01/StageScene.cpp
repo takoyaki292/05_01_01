@@ -10,7 +10,6 @@ void StageScene::Init()
 
 	player_ = new Player();
 }
-
 void StageScene::Update(char* keys, char* preKeys)
 {
 	iCommand_ = inputHandler_->HandleInput();
