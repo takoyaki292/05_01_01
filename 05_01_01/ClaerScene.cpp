@@ -7,7 +7,7 @@ void ClaerScene::Init()
 
 void ClaerScene::Update(char* keys, char* preKeys)
 {
-	Novice::DrawBox(0, 0, 1280, 720, 0.0f, BLACK, kFillModeSolid);
+	
 	//titleに切り替える
 	if (preKeys[DIK_SPACE] == 0 && keys[DIK_SPACE] != 0)
 	{
@@ -17,4 +17,5 @@ void ClaerScene::Update(char* keys, char* preKeys)
 
 void ClaerScene::Draw()
 {
+	Novice::DrawBox(0, 0, 1280, 720, 0.0f, BLACK, kFillModeSolid);
 }
