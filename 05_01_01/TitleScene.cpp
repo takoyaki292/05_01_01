@@ -1,4 +1,4 @@
-﻿#include"TitleScene.h"
+#include"TitleScene.h"
 #include"Novice.h"
 #include <stdio.h>
 void TitleScene::Init()

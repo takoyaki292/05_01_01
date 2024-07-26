@@ -1,10 +1,11 @@
-﻿#include "GameManager.h"
+#include "GameManager.h"
 #include <Novice.h>
 GameManager::GameManager()
 {
 	sceneArr_[TITLE] = std::make_unique<TitleScene>();
 	sceneArr_[STAGE] = std::make_unique<StageScene>();
 	sceneArr_[CLEAR] = std::make_unique<ClaerScene>();
+	sceneArr_[OVER] = std::make_unique<OverScene>();
 
 	currentSceneNo_ = TITLE;
 }

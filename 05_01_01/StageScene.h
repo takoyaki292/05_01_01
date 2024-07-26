@@ -1,9 +1,9 @@
-﻿#pragma once
+#pragma once
 #include "IScene.h"
 #include "InputHandle.h"
 #include "command.h"
 #include "Player.h"
-
+#include "Enemy.h"
 
 class StageScene :public IScene
 {
@@ -14,5 +14,6 @@ public:
 private:
 	InputHandler* inputHandler_ = nullptr;
 	ICommand* iCommand_=nullptr;
-	Player* player_;
+	Player* player_=nullptr;
+	Enemy* enemy_=nullptr;
 };
