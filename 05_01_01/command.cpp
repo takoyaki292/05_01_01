@@ -27,5 +27,10 @@ void MoveDownCommand::Exec(Player& player)
 
 void PCommand::Exec(Player& player)
 {
-	player.MoveBullet();
+	
+	if (player.isBulletF == 0)
+	{
+		player.IsBullet();
+	}
+	
 }

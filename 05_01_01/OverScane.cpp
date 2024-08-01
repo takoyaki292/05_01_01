@@ -7,12 +7,12 @@ void OverScene::Init()
 
 void OverScene::Update(char* keys, char* preKeys)
 {
-
 	//titleに切り替える
 	if (preKeys[DIK_SPACE] == 0 && keys[DIK_SPACE] != 0)
 	{
 		sceneNo = TITLE;
 	}
+	
 }
 
 void OverScene::Draw()
