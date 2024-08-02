@@ -3,7 +3,8 @@ enum  SCENE
 {
 	TITLE,
 	STAGE,
-	CLEAR
+	CLEAR,
+	OVER
 };
 
 class IScene {
