@@ -3,6 +3,7 @@
 #include <corecrt_math.h>
 Player::Player()
 {
+	isAlive = 1;
 }
 
 Player::~Player()
@@ -56,7 +57,11 @@ void Player::MoveDown()
 
 void Player::IsBullet()
 {
-	isBulletF = true;
+	if (isAlive == 1)
+	{
+		isBulletF = true;
+
+	}
 }
 
 void Player::MoveBullet()
@@ -76,26 +81,46 @@ void Player::MoveBullet()
 
 }
 
-//Vector2 Player::GetWorldPosition()
-//{
-//	Vector2 pos;
-//
-//	return Vector2();
-//}
 
-//丸の当たり判定
-//void Player::checkCollision(Vector2 playerPos, Vector2 enemyPos, int playerR, int enemyR,int isDistane)
-//{
-//	float dx = playerPos.x - enemyPos.x;
-//	float dy = playerPos.y - enemyPos.y;
-//	bool distance =sqrt(dx * dx + dy * dy);
-//	int R = playerR + enemyR;
-//	if ((int)distance <= R)
-//	{
-//		isDistane = 1;
-//	}
-//	else {
-//		isDistane = 0;
-//	}
-//
-//}
+
+Vector2 Player::GetWorldPosition()
+{
+	Vector2 pos;
+	pos.x = this->pos_.x;
+	pos.y = this->pos_.y;
+
+	return pos;
+}
+
+Vector2 Player::GetWorldBullet()
+{
+	Vector2 pos;
+	pos.x = this->bulletPos_.x;
+	pos.y = this->bulletPos_.y;
+
+	return pos;
+}
+
+AABB Player::GetPlayerAABB()
+{
+	Vector2 worldPos = GetWorldPosition();
+
+	AABB aabb;
+	aabb.min = {
+		worldPos.x - this->playerR_, worldPos.y - this->playerR_ };
+	aabb.max = {
+		worldPos.x + this->playerR_, worldPos.y + this->playerR_};
+	return aabb;
+}
+
+AABB Player::GetPlayerBulletAABB()
+{
+	Vector2 worldPos = GetWorldBullet();
+
+	AABB aabb;
+	aabb.min = {
+		worldPos.x - this->bulletR_, worldPos.y - this->bulletR_ };
+	aabb.max = {
+		worldPos.x + this->bulletR_, worldPos.y + this->bulletR_ };
+	return aabb;
+}

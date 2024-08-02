@@ -12,6 +12,7 @@ void Enemy::Init(const Vector2& pos, const int& bulletTimer)
 {
 	pos_ = pos;
 	bulletTimer_ = bulletTimer;
+	isAlive = 1;
 }
 
 void Enemy::Update()
@@ -70,16 +71,65 @@ void Enemy::MoveBullet()
 	if (isBulletF == 0)
 	{
 		this->bulletPos_ = this->pos_;
-		//bulletTimer = 0;
+		//bulletTimer_ = 0;
+		bulletTimer_++;
 	}
 
 }
 
 void Enemy::TimerBullet()
 {
-	bulletTimer_++;
+	if (isAlive ==1)
+	{
+		if (isBulletF == 0)
+		{
+			bulletTimer_++;
+		}
+	}
 	if (bulletTimer_ >= 60)
 	{
 		isBulletF = 1;
+		bulletTimer_ = 0;
 	}
+}
+
+Vector2 Enemy::GetWorldPosition()
+{
+	Vector2 pos;
+	pos.x = this->pos_.x;
+	pos.y = this->pos_.y;
+
+	return pos;
+}
+
+Vector2 Enemy::GetWorldBullet()
+{
+	Vector2 pos;
+	pos.x = this->bulletPos_.x;
+	pos.y = this->bulletPos_.y;
+	return pos;
+}
+
+AABB Enemy::GetPosAABB()
+{
+	Vector2 worldPos = GetWorldPosition();
+
+	AABB aabb;
+	aabb.min = {
+		worldPos.x - this->R, worldPos.y - this->R };
+	aabb.max = {
+		worldPos.x + this->R, worldPos.y + this->R };
+	return aabb;
+}
+
+AABB Enemy::GetBulletAABB()
+{
+	Vector2 worldPos = GetWorldBullet();
+
+	AABB aabb;
+	aabb.min = {
+		worldPos.x - this->bulletR, worldPos.y - this->bulletR };
+	aabb.max = {
+		worldPos.x + this->R, worldPos.y + this->bulletR };
+	return aabb;
 }

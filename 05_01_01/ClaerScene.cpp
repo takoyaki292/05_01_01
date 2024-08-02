@@ -18,5 +18,5 @@ void ClaerScene::Update(char* keys, char* preKeys)
 
 void ClaerScene::Draw()
 {
-	Novice::DrawBox(0, 0, 1280, 720, 0.0f, BLACK, kFillModeSolid);
+	Novice::DrawBox(0, 0, 1280, 720, 0.0f, WHITE, kFillModeSolid);
 }

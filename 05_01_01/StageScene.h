@@ -14,6 +14,11 @@ public:
 	void Draw()override;
 	StageScene();
 	~StageScene();
+	void playerCollisios();
+	void enemyCollisios();
+	void playerBulletCollisios();
+	void enemyBulletCollisios();
+	bool IsCollision(AABB a, AABB b);
 	void checkCollision(Vector2 playerPos, Vector2 enemyPos, int playerR, int enemyR, int isDistane);
 private:
 	InputHandler* inputHandler_ = nullptr;

@@ -1,12 +1,19 @@
 #pragma once
 #include "Vector2.h"
+#ifndef STRUCT_H
+#define STRUCT_H
+struct AABB {
+	Vector2 min;
+	Vector2 max;
+};
+#endif
+
 class Enemy {
 private:
 
 	float speed_ = 3.0f;
 	float bulletSpeed_ = 5.0f;
 
-	int bulletTimer_ = 0;
 public:
 	Enemy();
 	~Enemy();
@@ -26,4 +33,12 @@ public:
 	int isAlive = 1;
 	int isBulletF = 0;
 	void TimerBullet();
+
+	int bulletTimer_ = 0;
+	
+	Vector2 GetWorldPosition();
+	Vector2 GetWorldBullet();
+
+	AABB GetPosAABB();
+	AABB GetBulletAABB();
 };

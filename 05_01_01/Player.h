@@ -1,17 +1,20 @@
 #pragma once
 #include "Vector2.h"
 #include "Enemy.h"
-typedef struct {
-	Vector2 min;  
-	Vector2 max;  
-} AABB;
+#ifndef STRUCT_H
+#define STRUCT_H
+struct AABB {
+	Vector2 min;
+	Vector2 max;
+};
+#endif
 class Player {
 private:
 
 
 	float speed_ = 5.0f;
 	int playerR_ = 30;
-	int bulletR_ = 10;
+	int bulletR_ = 30;
 	float bulletSpeed_ = 7.0f;
 
 	Enemy* enemy_ = nullptr;
@@ -35,7 +38,9 @@ public:
 	int isAlive = 1;
 	int isBulletF = false;
 
-	//Vector2 GetWorldPosition();
-	//
-	//AABB GetAABB();
+	Vector2 GetWorldPosition();
+	Vector2 GetWorldBullet();
+	
+	AABB GetPlayerAABB();
+	AABB GetPlayerBulletAABB();
 };

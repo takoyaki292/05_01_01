@@ -1,13 +1,8 @@
 #include"TitleScene.h"
 #include"Novice.h"
 #include <stdio.h>
-
-
-
 void TitleScene::Init()
 {
-	//player = new Player();
-	//enemy = new Enemy();
 }
 
 void TitleScene::Update(char* keys, char* preKeys)

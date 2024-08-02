@@ -4,15 +4,11 @@
 
 class TitleScene :public IScene
 {
-public:
-	//TitleScene();
-	//~TitleScene();
-	
+public:	
 	void Init()override;
 	void Update(char* keys, char* preKeys)override;
 	void Draw()override;
 	
 private:
-	Player* player = nullptr;
-	//Enemy* enemy = nullptr;
+
 };

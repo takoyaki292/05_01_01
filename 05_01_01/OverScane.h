@@ -1,6 +1,6 @@
 #pragma once
 #include "IScene.h"
-//#include "Player.h"
+#include "Player.h"
 //#include "Enemy.h"
 class OverScene :public IScene
 {
@@ -10,4 +10,5 @@ public:
 	void Draw()override;
 
 private:
+	Player player_;
 };
