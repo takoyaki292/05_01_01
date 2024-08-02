@@ -13,13 +13,12 @@ void StageScene::Init()
 
 
 	player_ = new Player();
-	//enemy_ = new Enemy();
 	for (int i = 0; i < 1; i++)
 	{
 		Enemy* newEnemy = new Enemy();
-		Vector2 pos = {200.f+80*i,100.f};
+		Vector2 pos = { 200.f + 80 * i,100.f };
 		int bulletTimer = 0;
-		newEnemy->Init(pos,bulletTimer);
+		newEnemy->Init(pos, bulletTimer);
 		enemies_.push_back(newEnemy);
 	}
 
@@ -31,9 +30,9 @@ void StageScene::Update(char* keys, char* preKeys)
 	if (this->iCommand_)
 	{
 		iCommand_->Exec(*player_);
-		
+
 	}
-	
+
 	//checkCollision(player_->pos_,)
 	if (player_->isAlive == 1)
 	{
@@ -45,15 +44,15 @@ void StageScene::Update(char* keys, char* preKeys)
 			sceneNo = CLEAR;
 		}
 	}
-	else if(player_->isAlive==0)
+	else if (player_->isAlive == 0)
 	{
 		if (preKeys[DIK_SPACE] == 0 && keys[DIK_SPACE] != 0)
 		{
 			sceneNo = OVER;
 		}
 	}
-	
-	
+
+
 	for (Enemy* enemy : enemies_) {
 		if (!enemy) {
 			continue;

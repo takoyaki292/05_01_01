@@ -36,7 +36,7 @@ int GameManager::Run()
 		{
 			sceneArr_[currentSceneNo_]->Init();
 		}
-		sceneArr_[currentSceneNo_]->Update(keys,preKeys);
+		sceneArr_[currentSceneNo_]->Update(keys, preKeys);
 		sceneArr_[currentSceneNo_]->Draw();
 
 		//フレーム終了

@@ -8,7 +8,7 @@ Enemy::~Enemy()
 {
 }
 
-void Enemy::Init(const Vector2& pos,const int& bulletTimer)
+void Enemy::Init(const Vector2& pos, const int& bulletTimer)
 {
 	pos_ = pos;
 	bulletTimer_ = bulletTimer;
@@ -27,7 +27,7 @@ void Enemy::Draw()
 	}
 	if (isBulletF == 1)
 	{
-		Novice::DrawEllipse((int)bulletPos_.x, (int)bulletPos_.y, bulletR, bulletR,0.0f, RED, kFillModeSolid);
+		Novice::DrawEllipse((int)bulletPos_.x, (int)bulletPos_.y, bulletR, bulletR, 0.0f, RED, kFillModeSolid);
 	}
 }
 
@@ -46,23 +46,23 @@ void Enemy::MoveLeft()
 void Enemy::MoveEnemy()
 {
 	//MoveRight();
-	if (this->pos_.x> 1280-this->R) {
+	if (this->pos_.x > 1280 - this->R) {
 		this->speed_ = -3.0f;
 	}
-	else if(this->pos_.x<50-this->R)
+	else if (this->pos_.x < 50 - this->R)
 	{
 		this->speed_ = +3.0f;
 	}
-	
+
 }
 
 void Enemy::MoveBullet()
 {
-	
+
 	if (isBulletF == 1)
 	{
 		this->bulletPos_.y += this->bulletSpeed_;
-		if (this->bulletPos_.y > 720-bulletR)
+		if (this->bulletPos_.y > 720 - bulletR)
 		{
 			isBulletF = 0;
 		}
@@ -72,7 +72,7 @@ void Enemy::MoveBullet()
 		this->bulletPos_ = this->pos_;
 		//bulletTimer = 0;
 	}
-	
+
 }
 
 void Enemy::TimerBullet()
@@ -83,4 +83,3 @@ void Enemy::TimerBullet()
 		isBulletF = 1;
 	}
 }
-

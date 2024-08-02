@@ -17,7 +17,7 @@ void Player::Init()
 
 void Player::Update()
 {
-	checkCollision(pos_, enemy_->pos_, playerR_, enemy_->R,isAlive);
+	//checkCollision(pos_, enemy_->pos_, playerR_, enemy_->R, isAlive);
 }
 
 void Player::Draw()
@@ -30,7 +30,7 @@ void Player::Draw()
 	Novice::ScreenPrintf(0, 50, "playerIsAlive:%d", isAlive);
 	if (isBulletF == 1)
 	{
-		Novice::DrawEllipse((int)bulletPos_.x, (int)bulletPos_.y,bulletR_,bulletR_, 0.0f, RED, kFillModeSolid);
+		Novice::DrawEllipse((int)bulletPos_.x, (int)bulletPos_.y, bulletR_, bulletR_, 0.0f, RED, kFillModeSolid);
 	}
 }
 
@@ -61,9 +61,9 @@ void Player::IsBullet()
 
 void Player::MoveBullet()
 {
-	if (isBulletF== 1)
+	if (isBulletF == 1)
 	{
-		this->bulletPos_.y-= this->bulletSpeed_;
+		this->bulletPos_.y -= this->bulletSpeed_;
 		if (this->bulletPos_.y < bulletR_)
 		{
 			isBulletF = 0;
@@ -73,8 +73,15 @@ void Player::MoveBullet()
 	{
 		this->bulletPos_ = this->pos_;
 	}
-	
+
 }
+
+//Vector2 Player::GetWorldPosition()
+//{
+//	Vector2 pos;
+//
+//	return Vector2();
+//}
 
 //丸の当たり判定
 //void Player::checkCollision(Vector2 playerPos, Vector2 enemyPos, int playerR, int enemyR,int isDistane)

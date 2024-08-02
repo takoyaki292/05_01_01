@@ -5,14 +5,14 @@ private:
 
 	float speed_ = 3.0f;
 	float bulletSpeed_ = 5.0f;
-	
+
 	int bulletTimer_ = 0;
 public:
 	Enemy();
 	~Enemy();
 
 	Vector2 pos_ = { 300,200 };
-	Vector2 bulletPos_ = { pos_.x,pos_.y};
+	Vector2 bulletPos_ = { pos_.x,pos_.y };
 	int R = 30;
 	int bulletR = 20;
 	void Init(const Vector2& pos, const int& bulletTimer);
